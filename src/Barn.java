@@ -14,6 +14,8 @@ public class Barn implements Serializable {
         animalList = new ArrayList<>();
     }
 
+
+
     public void addAnimal(Animal animal) {
         animalList.add(animal);
     }

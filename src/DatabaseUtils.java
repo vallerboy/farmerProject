@@ -7,7 +7,7 @@ public class DatabaseUtils {
     private File file;
 
     public DatabaseUtils() {
-        this.file = new File("C:\\asd\\zwierze.db");
+        this.file = new File("C:\\asd\\barny.db");
 
         if(!file.exists()){
             try {
@@ -28,8 +28,8 @@ public class DatabaseUtils {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
-        }
+        e.printStackTrace();
+    }
     }
 
     public List<Barn> readState(){
@@ -39,7 +39,7 @@ public class DatabaseUtils {
 
             return (List<Barn>) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return null;
     }

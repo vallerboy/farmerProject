@@ -2,18 +2,28 @@ import java.util.*;
 
 public class Farmer {
 
-    private List<Barn> barnList;
+    public List<Barn> barnList;
+    private DatabaseUtils databaseUtils;
+
 
     public Farmer(){
+        databaseUtils = new DatabaseUtils();
+        barnList = databaseUtils.readState();
+        if(barnList == null){
+            barnList = new ArrayList<>();
+        }
+    }
 
-                }
+    public void save() {
+        databaseUtils.saveState(barnList);
+    }
 
-            public boolean addAnimalToBarn(Animal animal, int barnId){
-                for (Barn barn : barnList) {
-                    if(barn.getId() == barnId){
-                        barn.addAnimal(animal);
+     public boolean addAnimalToBarn(Animal animal, int barnId){
+           for (Barn barn : barnList) {
+              if(barn.getId() == barnId){
+                   barn.addAnimal(animal);
                 return true;
-            }
+              }
         }
         return false;
     }
